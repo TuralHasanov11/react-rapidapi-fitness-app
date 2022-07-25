@@ -1,25 +1,40 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Stack } from '@mui/material';
-
-import Logo from '../assets/images/Logo.png';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => (
-  <Stack direction="row" justifyContent="space-around" sx={{ gap: { sm: '123px', xs: '40px' }, mt: { sm: '32px', xs: '20px' }, justifyContent: 'none' }} px="20px">
-    <Link to="/">
-      <img src={Logo} alt="logo" style={{ width: '48px', height: '48px', margin: '0px 20px' }} />
-    </Link>
-    <Stack
-      direction="row"
-      gap="40px"
-      fontFamily="Alegreya"
-      fontSize="24px"
-      alignItems="flex-end"
-    >
-      <Link to="/" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #FF2625' }}>Home</Link>
-      <a href="#exercises" style={{ textDecoration: 'none', color: '#3A1212' }}>Exercises</a>
-    </Stack>
-  </Stack>
+  <nav className="fh5co-nav" role="navigation">
+    <div className="top">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 text-right">
+            <p className="num">Call: +01 123 456 7890</p>
+            <ul className="fh5co-social">
+              <li><a href="#exercises"><i className="icon-twitter" /></a></li>
+              <li><a href="#"><i className="icon-dribbble" /></a></li>
+              <li><a href="#"><i className="icon-github" /></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="top-menu">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-2">
+            <div id="fh5co-logo"><NavLink to="/">Fitness</NavLink></div>
+          </div>
+          <div className="col-xs-10 text-right menu-1">
+            <ul>
+              <li><a href="#exercises">Exercises</a></li>
+              <li><a href="#target">Target Muscles</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 );
 
 export default Navbar;

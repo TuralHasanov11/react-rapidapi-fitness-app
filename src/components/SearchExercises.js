@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
-
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
@@ -18,7 +16,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     fetchExercisesData();
   }, []);
 
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault();
+
     if (search) {
       const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
@@ -29,7 +29,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
                || item.bodyPart.toLowerCase().includes(search),
       );
 
-      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+      document.querySelector('#exercises').scrollIntoView({
+        behavior: 'smooth',
+      });
 
       setSearch('');
       setExercises(searchedExercises);
@@ -37,27 +39,34 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   };
 
   return (
-    <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
-      <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center">
-        Awesome Exercises You <br /> Should Know
-      </Typography>
-      <Box position="relative" mb="72px">
-        <TextField
-          height="76px"
-          sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '1170px', xs: '350px' }, backgroundColor: '#fff', borderRadius: '40px' }}
-          value={search}
-          onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          placeholder="Search Exercises"
-          type="text"
-        />
-        <Button className="search-btn" sx={{ bgcolor: '#FF2625', color: '#fff', textTransform: 'none', width: { lg: '173px', xs: '80px' }, height: '56px', position: 'absolute', right: '0px', fontSize: { lg: '20px', xs: '14px' } }} onClick={handleSearch}>
-          Search
-        </Button>
-      </Box>
-      <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
-        <HorizontalScrollbar data={bodyParts} bodyParts setBodyPart={setBodyPart} bodyPart={bodyPart} />
-      </Box>
-    </Stack>
+    <div id="fh5co-services" className="fh5co-bg-section">
+      <div className="row animate-box">
+        <div className="col-md-8 col-md-offset-2 text-center fh5co-heading">
+          <h2>Awesome Exercises you should know</h2>
+          <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+        </div>
+      </div>
+      <div className="row animate-box">
+        <form action="#" className="col-md-8 col-md-offset-2 text-center" onSubmit={handleSearch}>
+          <div className="row form-group">
+            <div className="col-12">
+              <input
+                type="text"
+                id="fname"
+                className="form-control"
+                value={search}
+                onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                placeholder="Search Exercises"
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary">Search</button>
+          </div>
+        </form>
+      </div>
+      <HorizontalScrollbar data={bodyParts} bodyParts setBodyPart={setBodyPart} bodyPart={bodyPart} />
+    </div>
   );
 };
 
