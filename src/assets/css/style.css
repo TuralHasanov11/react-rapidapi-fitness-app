@@ -28,11 +28,11 @@ body {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-.offcanvas #page {
+.offcanvas-body #page {
   overflow: hidden;
   position: absolute;
 }
-.offcanvas #page:after {
+.offcanvas-body #page:after {
   -webkit-transition: 2s;
   -o-transition: 2s;
   transition: 2s;
@@ -259,7 +259,6 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-counter,
 .fh5co-bg {
   background-size: cover;
-  background-position: center center;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -281,62 +280,6 @@ h1, h2, h3, h4, h5, h6, figure {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
-}
-
-.fh5co-video {
-  overflow: hidden;
-}
-@media screen and (max-width: 992px) {
-  .fh5co-video {
-    height: 450px;
-  }
-}
-.fh5co-video a {
-  z-index: 1001;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -45px;
-  margin-left: -45px;
-  width: 90px;
-  height: 90px;
-  display: table;
-  text-align: center;
-  background: #fff;
-  -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-}
-.fh5co-video a i {
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 40px;
-}
-.fh5co-video .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-}
-.fh5co-video:hover .overlay {
-  background: rgba(0, 0, 0, 0.7);
-}
-.fh5co-video:hover a {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  transform: scale(1.2);
 }
 
 .fh5co-cover {
@@ -578,7 +521,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .services {
   padding: 25px;
-  margin-top: -10em;
+  margin-bottom: 1em;
   background: #fff;
   -webkit-box-shadow: 0px 10px 23px -10px rgba(0, 0, 0, 0.43);
   -moz-box-shadow: 0px 10px 23px -10px rgba(0, 0, 0, 0.43);
@@ -947,6 +890,10 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-portfolio-list li a:hover:before {
   background: rgba(0, 0, 0, 0.5);
 }
+#fh5co-portfolio-list li a:hover .case-studies-summary h4 {
+  color: rgb(221, 221, 221);
+  transition: 0.5s;
+}
 #fh5co-portfolio-list li a .case-studies-summary {
   width: auto;
   bottom: 2em;
@@ -965,15 +912,19 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-portfolio-list li a .case-studies-summary span {
   text-transform: uppercase;
   letter-spacing: 2px;
+  padding: 0.2em;
+  border-radius: 0.5em;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #ddd;
+  background: rgba(55, 55, 55, 0.7);
 }
-#fh5co-portfolio-list li a .case-studies-summary h2 {
-  color: #fff;
+#fh5co-portfolio-list li a .case-studies-summary h4 {
+  color: rgb(122, 122, 122);
   margin-bottom: 0;
+  font-weight: bold;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-portfolio-list li a .case-studies-summary h2 {
+  #fh5co-portfolio-list li a .case-studies-summary h4 {
     font-size: 20px;
   }
 }
@@ -990,8 +941,22 @@ h1, h2, h3, h4, h5, h6, figure {
     width: 100%;
   }
 }
-#fh5co-portfolio-list li.one-third {
+#fh5co-portfolio-list li.one-fourth {
   width: 23.8%;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-portfolio-list li.one-fourth {
+    width: 49%;
+  }
+}
+@media screen and (max-width: 480px) {
+  #fh5co-portfolio-list li.one-fourth {
+    width: 100%;
+  }
+}
+
+#fh5co-portfolio-list li.one-third {
+  width: 30%;
 }
 @media screen and (max-width: 768px) {
   #fh5co-portfolio-list li.one-third {
@@ -1003,6 +968,7 @@ h1, h2, h3, h4, h5, h6, figure {
     width: 100%;
   }
 }
+
 #fh5co-portfolio-list li.one-half {
   width: 49%;
 }
@@ -1337,7 +1303,7 @@ h1, h2, h3, h4, h5, h6, figure {
     display: block;
   }
 }
-.offcanvas #fh5co-offcanvas {
+.offcanvas-body #fh5co-offcanvas {
   -moz-transform: translateX(0px);
   -webkit-transform: translateX(0px);
   -ms-transform: translateX(0px);
@@ -1729,11 +1695,10 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url(../images/loader.gif) center no-repeat #fff;
+  background: url('../images/loader.gif') center no-repeat #fff;
 }
 
 .js .animate-box {
   opacity: 0;
 }
 
-/*# sourceMappingURL=style.css.map */

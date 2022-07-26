@@ -1,125 +1,42 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Stack } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import { NavLink } from 'react-router-dom';
+import { githubAddress, linkedinAddress, phone, portfolioAddress, youtubeAddress } from '../constants';
 
-import Logo from '../assets/images/Logo.png';
-
-const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  return (
-    <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <FitnessCenterIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              Fitness
-            </Typography>
-  
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography href="#exercises">Exercises</Typography>
-                </MenuItem>
-              </Menu>
-            </Box>
-            <FitnessCenterIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href=""
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              LOGO
-            </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Button
-                href="#exercises"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Exercises
-              </Button>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-  )
-}
+const Navbar = () => (
+  <nav className="fh5co-nav" role="navigation">
+    <div className="top">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 text-right">
+            <p className="num">Call: {phone}</p>
+            <ul className="fh5co-social">
+              <li><a target="_blank" href={linkedinAddress} rel="noreferrer"><i className="icon-linkedin" /></a></li>
+              <li><a target="_blank" href={youtubeAddress} rel="noreferrer"><i className="icon-youtube" /></a></li>
+              <li><a target="_blank" href={githubAddress} rel="noreferrer"><i className="icon-github" /></a></li>
+              <li><a target="_blank" href={portfolioAddress} rel="noreferrer"><i className="icon-file" /></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="top-menu">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-2">
+            <div id="fh5co-logo"><NavLink to="/">Fitness</NavLink></div>
+          </div>
+          <div className="col-xs-10 text-right menu-1">
+            <ul>
+              <li><a href="#exercises">Exercises</a></li>
+              <li><a href="#target">Target Muscles</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+);
 
 export default Navbar;

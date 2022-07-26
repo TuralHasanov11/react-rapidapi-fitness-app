@@ -1,14 +1,27 @@
-body {
-  font-family: 'Josefin Sans';
-  background-color: #FFFAFB;
+
+.detail-image {
+  width: 729px;
+  height: 742px;
 }
 
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-
+.bodyPart-card {
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
 }
+
+.bodyPart-card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.exercise-video {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 387px;
+  height: 381px;
+  text-decoration: none;
+}
+
 
 ::-webkit-scrollbar {
   width: 0px;
@@ -27,14 +40,17 @@ body {
   font-size: 25px;
   border-radius: 4px;
   position: absolute;
-  bottom: -20px;
-  right: 80px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
+  bottom: -2em;
 }
 
 .right-arrow {
-  right: 140px;
+  left: 45%;
+}
+
+.left-arrow {
+  right: 45%;
 }
 
 .right-arrow:hover,
@@ -48,86 +64,23 @@ body {
   flex-wrap: wrap;
 }
 
-.detail-image {
-  width: 729px;
-  height: 742px;
-}
-
-.hero-banner-img {
-  position: absolute;
-  right: 40px;
-  top: 0px;
-  width: 700px;
-  height: 900px;
-  margin-top: -330px;
-
-}
-
-.exercise-card {
-  width: 400px;
-  height: 445px;
-  background: #fff;
-  border-top: 4px solid #FF2625;
-  border-bottom-left-radius: 20px;
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding-bottom: 10px;
-  transform: scale(1, 1);
-  transition: 0.3s all ease-in-out;
-}
-
-.exercise-card img {
-  height: 326px;
-}
-
-.bodyPart-card {
-  transform: scale(1, 1);
-  transition: 0.3s all ease-in-out;
-}
-
-.exercise-card:hover,
-.bodyPart-card:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.search-btn:hover {
-  color: #FF2625 !important;
-  border: 1px solid #FF2625 !important;
-}
-
-.exercise-video {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 387px;
-  height: 381px;
-  text-decoration: none;
-}
-
 @media screen and (max-width:1200px) {
-  .detail-image {
-    width: 300px;
-    height: 300px;
-  }
-
 
   .react-horizontal-scrolling-menu--scroll-container {
     width: 500px;
   }
-
-  .left-arrow,
+  
   .right-arrow {
-    position: static !important;
+    left: 30%;
   }
 
-  .hero-banner-img {
-    display: none;
+  .left-arrow {
+    right: 30%;
   }
 
-  .exercise-card {
-    width: 320px;
+  .detail-image {
+    width: 300px;
+    height: 300px;
   }
 
   .exercise-video {
@@ -137,8 +90,3 @@ body {
 
 }
 
-@media screen and (max-width:400px) {
-  .exercise-card {
-    width: 280px;
-  }
-}

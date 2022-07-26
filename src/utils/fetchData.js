@@ -17,6 +17,11 @@ export const youtubeOptions = {
 export const fetchData = async (url, options) => {
   const res = await fetch(url, options);
   const data = await res.json();
-
   return data;
 };
+
+// export const fetchData = async () => {
+//   console.log(['back', 'cardio', 'chest', 'lower arms', 'lower legs', 'neck', 'shoulders', 'upper arms', 'upper legs', 'waist']);
+
+//   return ['back', 'cardio', 'chest', 'lower arms', 'lower legs', 'neck', 'shoulders', 'upper arms', 'upper legs', 'waist'];
+// };
