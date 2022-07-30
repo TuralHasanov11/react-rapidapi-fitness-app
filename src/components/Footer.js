@@ -7,7 +7,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="fh5co-footer" className="fh5co-bg" style={{ backgroundImage: `url(${'img_bg_1.jpg'})` }} role="contentinfo">
+    <footer id="fh5co-footer" className="fh5co-bg" role="contentinfo">
       <div className="overlay" />
       <div className="container">
         <div className="row copyright">
